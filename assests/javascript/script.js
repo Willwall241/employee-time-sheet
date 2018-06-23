@@ -20,6 +20,13 @@ database.ref().on("child_added",function(snapshot)
     var newName = $("<td>" + snapshot.val().nameVar + "</td>");
     var newRole = $("<td>" + snapshot.val().roleVar + "</td>");
     var startDate = new Date();
+    var stringDate = snapshot.val().startDateVar;
+    startDate.setMonth(parseInt(stringDate.split("/")));
+    var day = stringDate.split("/");
+    console.log(day);
+    //startDate.setDay(parseInt());
+    startDate.setYear(parseInt(stringDate));
+    console.log(startDate);
     console.log(snapshot.val().startDateVar);
     //d.setMonth(d.getMonth() - 3);
     var totalMonthsWorked = $("<td>" + snapshot.val().startDateVar + "</td>");
@@ -46,7 +53,7 @@ $("#submit").on("click", function(event) {
     // Get the input values
     var name = $("#employee-name").val().trim();
     var role = ($("#role").val().trim());
-    var startDate = parseInt($("#start-Date").val().trim());
+    var startDate = ($("#start-Date").val().trim());
     var monthlyRate = parseInt($("#monthly-rate").val().trim());
    
       // Save the new price in Firebase. This will cause our "value" callback above to fire and update
