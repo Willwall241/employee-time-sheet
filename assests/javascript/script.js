@@ -19,22 +19,25 @@ database.ref().on("child_added",function(snapshot)
     var newtable = $("<tr>");
     var newName = $("<td>" + snapshot.val().nameVar + "</td>");
     var newRole = $("<td>" + snapshot.val().roleVar + "</td>");
-    var monthsWorked = 
+    var startDate = new Date();
+    console.log(snapshot.val().startDateVar);
+    //d.setMonth(d.getMonth() - 3);
+    var totalMonthsWorked = $("<td>" + snapshot.val().startDateVar + "</td>");
     var newStartingDate = $("<td>" + snapshot.val().startDateVar + "</td>");
-    var monthlyRate = $("<td>" + snapshot.val().monthlyRateVar + "</td>");
-    var monthlyRate = $("<td>" + snapshot.val().monthlyRateVar + "</td>");
-    var monthlyRate = $("<td>" + snapshot.val().monthlyRateVar + "</td>");
+    //var monthlyRate = $("<td>" + snapshot.val().monthlyRateVar + "</td>");
+    //var monthlyRate = $("<td>" + snapshot.val().monthlyRateVar + "</td>");
+    //var monthlyRate = $("<td>" + snapshot.val().monthlyRateVar + "</td>");
     newtable.append(newName);
     newtable.append(newRole);
     newtable.append(newStartingDate);
-    newtable.append(monthlyRate);
+   // newtable.append(monthlyRate);
     $(".table").append(newtable);
 
 });
 
-database.ref.orderbyChild("dateAdded").limitToLast(1).on("child_added",function{
+// database.ref.orderbyChild("dateAdded").limitToLast(1).on("child_added",function{
 
-})
+// })
 
 
 $("#submit").on("click", function(event) {
